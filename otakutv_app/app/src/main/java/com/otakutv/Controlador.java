@@ -42,13 +42,13 @@ public class Controlador extends HttpServlet {
             PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);  // Indicar que queremos obtener las claves generadas automáticamente
         
             // Establecer los parámetros de la consulta de inserción
-            statement.setString(1, pelicula.getTitulo());
-            statement.setString(2, pelicula.getGenero());
-            statement.setString(3, pelicula.getDuracion());
-            statement.setString(4, pelicula.getDirector());
-            statement.setString(5, pelicula.getReparto());
-            statement.setString(6, pelicula.getSinapsis());
-            statement.setString(7, pelicula.getImagen());
+            statement.setString(1, anime.getTitulo());
+            statement.setString(2, anime.getGenero());
+            statement.setString(3, anime.getDuracion());
+            statement.setString(4, anime.getDirector());
+            statement.setString(5, anime.getReparto());
+            statement.setString(6, anime.getSinapsis());
+            statement.setString(7, anime.getImagen());
         
             statement.executeUpdate();  // Ejecutar la consulta de inserción en la base de datos
         
@@ -106,7 +106,7 @@ public class Controlador extends HttpServlet {
                     resultSet.getString("sinapsis"),
                     resultSet.getString("imagen")
                 );
-                peliculas.add(anime);  // Agregar el objeto Pelicula a la lista
+                animes.add(anime);  // Agregar el objeto Pelicula a la lista
             }
 
             ObjectMapper mapper = new ObjectMapper();  // Crear un objeto ObjectMapper para convertir objetos Java a JSON
