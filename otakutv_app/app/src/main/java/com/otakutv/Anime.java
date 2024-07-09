@@ -10,21 +10,21 @@ public class Anime {
     private String duracion; // Duración del anime (varchar)
     private String director;  // Director del anime (varchar)
     private String reparto; //Reparto del anime (varchar)
-    private String sinapsis; //Sinapsis del anime (varchar)
+    private String sinopsis; //sinopsis del anime (varchar)
     private String imagen;   // URL de la imagen del anime (varchar)
     
     //Constructor vacío necesario para la deserialización del JSON.
     public Anime(){}
 
     //Constructor con parámetros para inicializar todos los atributos.
-    public Anime( int idAnime, String titulo, String genero, String duracion, String director, String reparto, String sinapsis, String imagen){
+    public Anime( int idAnime, String titulo, String genero, String duracion, String director, String reparto, String sinopsis, String imagen){
         this.idAnime = idAnime;
         this.titulo = titulo;
         this.genero = genero;
         this.duracion = duracion;
         this.director = director;
         this.reparto = reparto;
-        this.sinapsis = sinapsis;
+        this.sinopsis = sinopsis;
         this.imagen = imagen;
     }
 
@@ -54,8 +54,8 @@ public class Anime {
         return reparto;
     }
 
-    public String getSinapsis(){
-        return sinapsis;
+    public String getSinopsis(){
+        return sinopsis;
     }
 
     public String getImagen(){
@@ -88,8 +88,8 @@ public class Anime {
         this.reparto = reparto;
     }
 
-    public void setSinapsis (String sinapsis){
-        this.sinapsis = sinapsis;
+    public void setSinopsis (String sinopsis){
+        this.sinopsis = sinopsis;
     }
 
     public void setImagen (String imagen){

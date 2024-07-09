@@ -23,7 +23,7 @@ public class Conexion {
 
             // Paso 2: Establecer la conexión con la base de datos 'peliculas_cac_java' en localhost
             this.connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/peliculas_cac_java",  // URL de conexión JDBC para MySQL
+                "jdbc:mysql://localhost:3306/otakutv",  // URL de conexión JDBC para MySQL
                 "root",  // Nombre de usuario de la base de datos (cambia según tu configuración)
                 ""  // Contraseña de la base de datos (cambia según tu configuración)
             );

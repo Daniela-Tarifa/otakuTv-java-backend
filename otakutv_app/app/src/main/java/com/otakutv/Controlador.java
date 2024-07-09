@@ -19,7 +19,7 @@ Tomcat es un contenedor de servlets y servidor de aplicaciones web que ejecuta a
 */
 
 // Clase Controlador: Maneja las peticiones HTTP para insertar y recuperar películas.
-@WebServlet("/peliculas") // Anotación que mapea este servlet a la URL "/peliculas"
+@WebServlet("/otakutv") // Anotación que mapea este servlet a la URL "/peliculas"
 
 // Declaración de la clase Controlador que extiende HttpServlet
 public class Controlador extends HttpServlet {
@@ -38,7 +38,7 @@ public class Controlador extends HttpServlet {
             Anime anime = mapper.readValue(request.getInputStream(), Anime.class);  // Convertir el JSON de la solicitud a un objeto Pelicula
         
             // Consulta SQL para insertar una nueva película en la tabla 'peliculas'
-            String query = "INSERT INTO animes (titulo, genero, duracion, director, reparto, sinapsis, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO anime (titulo, genero, duracion, director, reparto, sinopsis, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);  // Indicar que queremos obtener las claves generadas automáticamente
         
             // Establecer los parámetros de la consulta de inserción
@@ -47,7 +47,7 @@ public class Controlador extends HttpServlet {
             statement.setString(3, anime.getDuracion());
             statement.setString(4, anime.getDirector());
             statement.setString(5, anime.getReparto());
-            statement.setString(6, anime.getSinapsis());
+            statement.setString(6, anime.getSinopsis());
             statement.setString(7, anime.getImagen());
         
             statement.executeUpdate();  // Ejecutar la consulta de inserción en la base de datos
@@ -87,7 +87,7 @@ public class Controlador extends HttpServlet {
 
         try {
             // Consulta SQL para seleccionar todas las películas de la tabla 'peliculas'
-            String query = "SELECT * FROM animes";
+            String query = "SELECT * FROM anime";
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(query);  // Ejecutar la consulta y obtener los resultados
 
@@ -103,7 +103,7 @@ public class Controlador extends HttpServlet {
                     resultSet.getString("duracion"),
                     resultSet.getString("director"),
                     resultSet.getString("reparto"),
-                    resultSet.getString("sinapsis"),
+                    resultSet.getString("sinopsis"),
                     resultSet.getString("imagen")
                 );
                 animes.add(anime);  // Agregar el objeto Pelicula a la lista
