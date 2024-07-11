@@ -7,5 +7,5 @@
 - Emiliano Miranda
 - Rosmery Torres
 - Kevin Moncayo
-- Dan
+- Daniela Tarifa
 - Leandro Maselli
